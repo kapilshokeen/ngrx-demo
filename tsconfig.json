@@ -16,7 +16,25 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowArbitraryExtensions": false,
+    "noUncheckedSideEffectImports": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "noStrictGenericChecks": false,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "noErrorTruncation": true,
+    "pretty": true,
+    "assumeChangesOnlyAffectDirectDependencies": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
