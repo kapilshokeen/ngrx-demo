@@ -34,12 +34,23 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "noErrorTruncation": true,
     "pretty": true,
-    "assumeChangesOnlyAffectDirectDependencies": true
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "emitDecoratorMetadata": true,
+    "checkJs": true,
+    "allowJs": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictNullChecks": true,
+    "strictStandalone": true,
+    "strictTemplates": true,
+    "annotateForClosureCompiler": true,
+    "compilationMode": "full",
+    "enableResourceInlining": false,
+    "enableLegacyTemplate": false,
+    "skipTemplateCodegen": false,
+    "trace": true,
   }
 }
