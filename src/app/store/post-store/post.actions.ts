@@ -5,4 +5,6 @@ export const postListFetch = createAction("[Post List Component] Post Fetch", pr
 
 export const postListFetchSuccess = createAction("[Post List Component] Post Fetch Success", props<{payload: Post[]}>());
 
+export const postListFetchError = createAction("[Post List Component] Post Fetch Error", props<{payload: string}>());
+
 export const postListClear = createAction("[Post List Component] Post Clear");

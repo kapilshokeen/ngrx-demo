@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { type Post } from "./post.model";
-import { postListClear, postListFetchSuccess } from "./post.actions";
+import { postListClear, postListFetch, postListFetchError, postListFetchSuccess } from "./post.actions";
 import type { AppStateItem } from "../app.state";
 
 const INITIAL_STATE: AppStateItem<Post> = {
@@ -11,13 +11,26 @@ const INITIAL_STATE: AppStateItem<Post> = {
 
 export const postListReducer = createReducer<AppStateItem<Post>>(
   INITIAL_STATE,
-  on(postListFetchSuccess, (state, action) => {
-    return {
-      ...state,
-      isLoading: false,
-      error: '',
-      data: action.payload
-    };
-  }),
-  on(postListClear, () => ({ isLoading: false, error: '', data: [] })),
+  on(postListFetch, state => ({
+    ...state,
+    isLoading: true,
+    error: ''
+  })),
+  on(postListFetchSuccess, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: '',
+    data: action.payload
+  })),
+  on(postListFetchError, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: action.payload
+  })),
+  on(postListClear, state => ({
+    ...state,
+    isLoading: false,
+    error: '',
+    data: []
+  })),
 );
