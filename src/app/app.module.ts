@@ -1,21 +1,34 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostListComponent } from './components/post-list/post-list.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { postListReducer } from './store/post-store/post.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { PostEffects } from './store/post-store/post.effects';
+import { type AppState } from './store/app.state';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PostListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch()),
+    provideStore<AppState>({
+      postList: postListReducer
+    }),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideEffects(
+      PostEffects
+    )
   ],
   bootstrap: [AppComponent]
 })
