@@ -39,14 +39,27 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/semantic-ui-css/semantic.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "aot": true,
+            "clearScreen": true,
+            "namedChunks": true,
+            "optimization": true,
+            "outputHashing": "all",
+            "outputMode": "server",
+            "progress": true,
+            "security": {
+              "autoCsp": true
+            },
+            "statsJson": true,
+            "appShell": true
           },
           "configurations": {
             "production": {
