@@ -1,6 +1,6 @@
 @let postList = postList$ | async;
 <div class="ui relaxed divided list padded segment">
-  @for (post of postList; track post.id) {
+  @for (post of postList?.data; track post.id) {
     <div class="item" routerLink="{{post.id}}">
       <a class="ui card">
       <div class="content">
