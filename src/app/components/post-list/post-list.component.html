@@ -18,8 +18,13 @@
     </div>
   }
   @empty {
-    <div class="ui big message">
-      <p>No data found...</p>
-    </div>
+    @if (!postList?.isLoading) {
+      <div class="ui big message">
+        <p>No data found...</p>
+      </div>
+    }
+  }
+  @if (postList?.isLoading) {
+    <div class="ui active centered inline loader"></div>
   }
 </div>
