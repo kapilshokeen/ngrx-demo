@@ -7,7 +7,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
-  standalone: true,
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss',
   imports: [

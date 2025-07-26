@@ -1,25 +1,20 @@
-import { NgModule, isDevMode } from '@angular/core';
-import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { type ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { routes } from './app.routes';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import type { AppState } from './store/app.state';
 import { postListReducer } from './store/post-store/post.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { PostEffects } from './store/post-store/post.effects';
-import { type AppState } from './store/app.state';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     provideStore<AppState>({
@@ -29,7 +24,5 @@ import { type AppState } from './store/app.state';
     provideEffects(
       PostEffects
     )
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  ]
+};
