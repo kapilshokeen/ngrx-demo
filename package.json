@@ -1,5 +1,5 @@
 {
-  "name": "ngrx-store",
+  "name": "ngrx-demo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ngrx-store": "node dist/ngrx-store/server/server.mjs"
+    "serve:ssr:ngrx-demo": "node dist/ngrx-demo/server/server.mjs"
   },
   "private": true,
   "dependencies": {

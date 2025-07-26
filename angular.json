@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngrx-store": {
+    "ngrx-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ngrx-store",
+            "outputPath": "dist/ngrx-demo",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -89,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngrx-store:build:production"
+              "buildTarget": "ngrx-demo:build:production"
             },
             "development": {
-              "buildTarget": "ngrx-store:build:development"
+              "buildTarget": "ngrx-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
