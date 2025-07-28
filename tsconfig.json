@@ -35,7 +35,6 @@
     "noErrorTruncation": true,
     "pretty": true,
     "assumeChangesOnlyAffectDirectDependencies": true,
-    "emitDecoratorMetadata": true,
     "checkJs": true,
     "allowJs": true
   },
