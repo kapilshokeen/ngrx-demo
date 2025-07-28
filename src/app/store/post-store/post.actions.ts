@@ -1,10 +1,12 @@
-import { createAction, props } from "@ngrx/store";
+import { createActionGroup, emptyProps, props } from "@ngrx/store";
 import { type Post } from "./post.model";
 
-export const postListFetch = createAction("[Post List Component] Post Fetch", props);
-
-export const postListFetchSuccess = createAction("[Post List Component] Post Fetch Success", props<{payload: Post[]}>());
-
-export const postListFetchError = createAction("[Post List Component] Post Fetch Error", props<{payload: string}>());
-
-export const postListClear = createAction("[Post List Component] Post Clear");
+export const postListActions = createActionGroup({
+  source: "Post List",
+  events: {
+    "Fetch List": emptyProps(),
+    "Fetch List Success": props<{payload: { data: Post[] }}>(),
+    "Fetch List Error": props<{payload: { error: string; }}>(),
+    "Clear List": emptyProps()
+  }
+});
