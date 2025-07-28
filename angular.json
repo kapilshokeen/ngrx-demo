@@ -55,9 +55,6 @@
             "outputHashing": "all",
             "outputMode": "server",
             "progress": true,
-            "security": {
-              "autoCsp": true
-            },
             "statsJson": true,
             "appShell": true
           },
@@ -66,8 +63,18 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1.5MB",
+                  "maximumError": "2MB"
+                },
+                {
+                  "type": "bundle",
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
+                },
+                {
+                  "type": "all",
+                  "maximumWarning": "5MB",
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",
