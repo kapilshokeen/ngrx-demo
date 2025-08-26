@@ -5,10 +5,12 @@ export const POST_ROUTES: Routes = [
     path: '',
     pathMatch: 'full',
     loadComponent: () => import('../components/post-list/post-list.component').then(m => m.PostListComponent),
+    title: 'Post list'
   },
   {
     path: ':id',
-    loadComponent: () => import('../components/post/post.component').then(c => c.PostComponent)
+    loadComponent: () => import('../components/post/post.component').then(c => c.PostComponent),
+    title: 'Post details'
   },
   {
     path: '**',
