@@ -3,8 +3,8 @@
 # Angular specific
 # Compiled output
 /dist/
-/out-tsc/
 /tmp/
+/out-tsc/
 /bazel-out/
 /coverage/
 /e2e/test-output/

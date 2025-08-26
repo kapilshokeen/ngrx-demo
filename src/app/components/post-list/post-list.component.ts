@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { postListClear, postListFetch } from '../../store/post-store/post.actions';
+import { postListActions } from '../../store/post-store/post.actions';
 import { postListSelector } from '../../store/post-store/post.selectors';
 import { RouterLink } from '@angular/router';
 
@@ -21,11 +21,11 @@ export class PostListComponent {
   protected postList$ = this.store.select(postListSelector);
 
   ngOnInit() {
-    this.store.dispatch(postListFetch());
+    this.store.dispatch(postListActions.fetchList());
   }
 
   ngOnDestroy() {
-    this.store.dispatch(postListClear());
+    this.store.dispatch(postListActions.clearList());
   }
 
 }

@@ -3,7 +3,8 @@ import { type Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'posts',
-    loadChildren: () => import('./routes/post.routes').then(routes => routes.POST_ROUTES)
+    loadChildren: () => import('./routes/post.routes').then(routes => routes.POST_ROUTES),
+    title: 'Post section'
   },
   {
     path: '',
